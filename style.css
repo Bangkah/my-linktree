@@ -1,0 +1,160 @@
+:root {
+    --gold: #d4af37;
+    --gold-glow: rgba(212, 175, 55, 0.25);
+    --bg: #0e0e0e;
+    --glass: rgba(255, 255, 255, 0.05);
+    --text: #f2f2f2;
+    --mute: #888;
+    --radius: 14px;
+    --font: 'Inter', sans-serif;
+    --title: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.bg {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at top, var(--gold-glow) 0%, transparent 70%);
+    animation: rotate 60s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 60px 24px;
+    animation: fadeUp 1.2s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: none; }
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 20px var(--gold-glow);
+    transition: transform .4s ease;
+}
+
+.profile img:hover {
+    transform: scale(1.1);
+}
+
+.profile h1 {
+    font-family: var(--title);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-top: 12px;
+    letter-spacing: 1px;
+}
+
+.profile p {
+    font-size: 14px;
+    color: var(--mute);
+    margin-top: 4px;
+}
+
+.profile span {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--mute);
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all .35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.link:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--gold-glow);
+}
+
+.link i {
+    font-size: 20px;
+    width: 28px;
+    color: var(--gold);
+}
+
+.link span {
+    margin-left: 12px;
+    font-weight: 500;
+    flex: 1;
+}
+
+.link small {
+    font-size: 12px;
+    color: var(--mute);
+}
+
+.link .fa-arrow-right,
+.link .fa-download {
+    margin-left: auto;
+    font-size: 14px;
+    transition: transform .3s ease;
+}
+
+.link:hover .fa-arrow-right,
+.link:hover .fa-download {
+    transform: translateX(5px);
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 12px;
+    color: var(--mute);
+}
+
+footer p {
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 4px;
+}
